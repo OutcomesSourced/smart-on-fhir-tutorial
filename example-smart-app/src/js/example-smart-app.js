@@ -35,7 +35,8 @@
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
           }
-
+          
+          var phone = patient.phone;
           var height = byCodes('8302-2');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
           var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
@@ -48,6 +49,7 @@
           p.fname = fname;
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
+          p.phone = phone;
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
@@ -78,6 +80,7 @@
       lname: {value: ''},
       gender: {value: ''},
       birthdate: {value: ''},
+      phone: {value: ''},
       height: {value: ''},
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
@@ -120,6 +123,7 @@
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
+    $('#phone').html(p.phone);
     $('#birthdate').html(p.birthdate);
     $('#height').html(p.height);
     $('#systolicbp').html(p.systolicbp);
